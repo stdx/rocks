@@ -8,5 +8,10 @@ end
 
 
 get '/throw/:type' do
-  # play here
+  player_throw = params[:type].to_sym
+  
+  if !@throws.include?(player_throw) then
+    halt 403, "Invalid throw. You must throw one of the following: #{@throws}"
+  end
+  
 end
